@@ -80,9 +80,9 @@ def local_coord_1(equacoord, eclipcoord, hour, eastlong):
             elif(i>int(len(lmst)/2) and ha[i]<=0): 
                 ha[i]=ha[i]+360
     else:
-        if(z<=12 and ha>=0):
+        if(Hour<=12 and Hour>=0):
             ha=ha-360
-        elif (z>12 and ha<=0):
+        elif (Hour>12 and ha<=0):
             ha=ha+360
     
     loccoord1=np.array([ha,lmst,gmst])        
@@ -115,15 +115,15 @@ def local_coord_2(loccord1, lat2, eclipcoord, equacoord):
         
         for i in range(0,len(el)):
             
-            if(el[i]>=elc[i]):
+            if(el[i]%360>=elc[i]):
                 az[i]=180-az[i]
-            elif(el[i]<=elc[i] and ha[i]>0): 
+            elif(el[i]%360<=elc[i] and ha[i]>0): 
                 az[i]=az[i]+360
                 
     else:
-        if(el>=elc):
+        if(el%360>=elc):
             az=az-180
-        elif (el<=elc and ha>0):
+        elif (el%360<=elc and ha>0):
             az=az+360
     
 
@@ -135,21 +135,45 @@ def local_coord_2(loccord1, lat2, eclipcoord, equacoord):
     
     
     
+ #-------------------------------------------------------------------------------------------------------------------   
     
     
-    
-
-
-z=np.linspace(0,24,25)
-z=z+5
+show=2
+UTC=-5
 Longitude=np.array(['O',75,33,48.92])
 Latitude=np.array(['N',6,13,1])
+Hi=6
+Hf=18
+Hour=np.linspace(Hi,Hf,(Hf-Hi)*1+1)-UTC
+Date=np.array([2021,1,28])
 
 
-jd=jd_diff(2021,1,27,z)
+
+
+jd=jd_diff(Date[0],Date[1],Date[2],Hour)
 eclipcoord=ecliptic_coord(jd)
 equacoord=equatorial_coord(eclipcoord)
 eastlong=east_longitude(Longitude)
 lat2=latitude2(Latitude)
-loccord1=local_coord_1(equacoord, eclipcoord, z, eastlong)
+loccord1=local_coord_1(equacoord, eclipcoord, Hour, eastlong)
 loccoord2=local_coord_2(loccord1, lat2, eclipcoord, equacoord)
+
+
+if show==1:
+    
+    plt.plot(Hour+UTC, loccoord2[0])
+    plt.xlim(min(Hour+UTC),max(Hour+UTC))
+    plt.ylim(min(loccoord2[0]),max(loccoord2[0])+1)
+    plt.title('Hour vs Sun elevation')
+    plt.xlabel('Hour (24h format)')
+    plt.ylabel('Elevation (°)')
+
+elif show==2:
+
+    plt.plot(Hour+UTC, loccoord2[1])
+    plt.xlim(min(Hour+UTC),max(Hour+UTC))
+    plt.ylim(min(loccoord2[1]),max(loccoord2[1])+1)
+    plt.title('Hour vs Sun azimuth')
+    plt.xlabel('Hour (24h format)')
+    plt.ylabel('Azimuth (°)')
+
