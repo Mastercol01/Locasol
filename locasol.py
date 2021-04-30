@@ -7,8 +7,8 @@ from matplotlib import pyplot as plt
 #This code allows you to calculate various parameters regarding the sun's position on the sky, as the day elapses.
 #Given the geographical coordinates of the location for which the sun's trajectory in the sky is wished to be calculated
 #and the date, along with the hour or range of hours, for which it is wished to be calculated, this code returns the approximate value of parameters such as:
-#the sun's Hour Right Ascension, delcination, Azimuth, Elevation/Altitude and Angle of incidence on a solar array, among othe things.
-#This code was primarly based on the Astronomical Almanac's Algorithm for approximate Solar position (1950-2050). However some parts of the algorith had to be changed, since
+#the sun's Hour Right Ascension, declination, Azimuth, Elevation/Altitude and Angle of incidence on a solar array, among other things.
+#This code was primarly based on the Astronomical Almanac's Algorithm for approximate Solar position (1950-2050). However some parts of the algorithm had to be changed, since
 #they were wrong or did not work. Having said that, enjoy.
 
 #---------------------------------------PARAMETER DEFINITION-------------------------------------------------------------
