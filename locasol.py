@@ -31,17 +31,17 @@ Date=np.array([2021,4,30])                                                     #
 #(It can be either a single value or a 2D array)
 Hour1D= 6 + (0/60) + (0/3600)                                                  #Hour1D: hour + (minutes/60) + (seconds/3600)
 Hour2D=np.linspace(6,18,60)                                                    #Hour2D: np.linspace(initial hour, final hour, number of partitions )
-HourDim=1                                                                     #HourDim=1 -> Hour1D becomes the input
+HourDim=2                                                                     #HourDim=1 -> Hour1D becomes the input
                                                                                #HourDim=2 -> Hour2D becomes the input
                                                                                          
 #ENTER THE SOLAR ARRAY'S RELATIVE POSITIONING  (Optional)
 #(It can be either a single value or a 2D array, but, in the latter case, it must have the same dimensions as Hour2D)
-slope1D=10                                                                     #Slope: Is the angle that the surface is tilted from the horizontal (deg)
+slope1D=10                                                                    #Slope: Is the angle that the surface is tilted from the horizontal (deg)
 saz1D=10                                                                       #Saz: Surface Azimuth of the solar panel. It is defined similarly as the azimuth for the sun (deg)          
 slope2D=10*np.ones(len(Hour2D))                                        
 saz2D=10*np.ones(len(Hour2D))                                                  #The 1D and 2D variants function exactly the same as explained in the section above for 'Hour'                                                  
-slopesazDim=1
-      
+slopesazDim=2
+
                                                 
 #CHOOSE WHICH GRAPH YOU WHISH TO SEE  (Applies only for Hour2D)  
 
@@ -497,6 +497,8 @@ if eclipcoord.ndim==2:
 
 #FOR 1D INPUTS:
 
+#aoi=aoi
+#el_correct=el_correct
 #el=loccoord2[0]
 #az=loccoord2[1]
 #elc=loccoord2[2]
@@ -514,6 +516,8 @@ if eclipcoord.ndim==2:
 
 #FOR 2D INPUTS:
 
+#aoi=aoi
+#el_correct=el_correct
 #el=loccoord2[0,:]
 #az=loccoord2[1,:]
 #elc=loccoord2[2,:]
