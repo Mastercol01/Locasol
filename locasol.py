@@ -29,7 +29,7 @@ Date=np.array([2021,4,30])                                                     #
 
 #ENTER THE LOCAL TIME IN 24H FORMAT  
 #(It can be either a single value or a 2D array)
-Hour1D= 5 + (49/60) + (0/3600)                                                  #Hour1D: hour + (minutes/60) + (seconds/3600)
+Hour1D= 6 + (0/60) + (0/3600)                                                  #Hour1D: hour + (minutes/60) + (seconds/3600)
 Hour2D=np.linspace(6,18,60)                                                    #Hour2D: np.linspace(initial hour, final hour, number of partitions )
 HourDim=1                                                                      #HourDim=1 -> Hour1D becomes the input
                                                                                #HourDim=2 -> Hour2D becomes the input
