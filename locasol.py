@@ -31,7 +31,7 @@ Date=np.array([2021,4,30])                                                     #
 #(It can be either a single value or a 2D array)
 Hour1D= 6 + (0/60) + (0/3600)                                                  #Hour1D: hour + (minutes/60) + (seconds/3600)
 Hour2D=np.linspace(6,18,60)                                                    #Hour2D: np.linspace(initial hour, final hour, number of partitions )
-HourDim=1                                                                      #HourDim=1 -> Hour1D becomes the input
+HourDim=1                                                                     #HourDim=1 -> Hour1D becomes the input
                                                                                #HourDim=2 -> Hour2D becomes the input
                                                                                          
 #ENTER THE SOLAR ARRAY'S RELATIVE POSITIONING  (Optional)
@@ -363,7 +363,7 @@ if(HourDim==1):
     print('JULIAN DATE:',jd)
     print('LOCAL TIME:', int(Hour+UTC),'h' , int(Hour+UTC-int(Hour+UTC))*60,'min', ((Hour+UTC-int(Hour+UTC))- int(Hour+UTC-int(Hour+UTC)))*60,'sec')  
     print('----------------------------------------------------------------------------')
-    print('HA:', loccord1[0], '°', '                |','HA:', int(loccord1[0]/15), 'h', int((loccord1[0]/15-int(loccord1[0]/15))*60), '\'', ((loccord1[0]/15-int(loccord1[0]/15))*60-int((loccord1[0]/15-int(loccord1[0]/15))*60))*60, '\"'   ) 
+    print('HA:', loccord1[0], '°', '                    |','HA:', int(loccord1[0]/15), 'h', int((loccord1[0]/15-int(loccord1[0]/15))*60), '\'', ((loccord1[0]/15-int(loccord1[0]/15))*60-int((loccord1[0]/15-int(loccord1[0]/15))*60))*60, '\"'   ) 
     print('LMST:', loccord1[1]*15, '°', '               |','LMST:', int(loccord1[1]), 'h', int((loccord1[1]-int(loccord1[1]))*60), '\'', ((loccord1[1]-int(loccord1[1]))*60-int((loccord1[1]-int(loccord1[1]))*60))*60, '\"'   ) 
     print('GMST', loccord1[2]*15, '°', '               |','GMST:', int(loccord1[2]), 'h', int((loccord1[2]-int(loccord1[2]))*60), '\'', ((loccord1[2]-int(loccord1[2]))*60-int((loccord1[2]-int(loccord1[2]))*60))*60, '\"'    ) 
     print('----------------------------------------------------------------------------')
